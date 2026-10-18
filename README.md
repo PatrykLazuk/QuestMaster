@@ -1,0 +1,31 @@
+# QuestMaster
+
+A phone-first web app for 5E tabletop sessions played around a real table. It's a smart character sheet that calculates every number for you, dice rolls with advantage and disadvantage, and a live table where everyone's rolls and HP changes show up on every phone within a second.
+
+> **Status:** early stage. The MVP spec is done; implementation hasn't started yet.
+
+## What it will do (MVP)
+
+- **Smart character sheet:** enter your ability scores, class, level and gear. The app computes modifiers, saves, skills, AC, HP and attack bonuses, and can explain every number line by line.
+- **Rolls:** checks, saves, initiative, attacks and damage, with advantage/disadvantage applied by the rules. Use the app's dice or type in what your physical dice show.
+- **Live table:** a shared roll feed, a GM dashboard with the whole party, and GM actions like damage and conditions. Phones that go to sleep catch up automatically.
+
+## Docs
+
+- [SPEC.md](SPEC.md): the MVP specification (user stories, rules with SRD page references, sync design, milestones)
+- [docs/adr/](docs/adr/): architecture decision records
+- [CLAUDE.md](CLAUDE.md): how I work with Claude Code on this project (learning mode)
+
+## Tech stack (planned)
+
+.NET 10 · ASP.NET Core · SignalR · EF Core + PostgreSQL · Aspire · Angular (PWA) · xUnit · Testcontainers · Playwright · GitHub Actions
+
+## License
+
+Code: [MIT](LICENSE). Game content from the SRD stays under CC-BY-4.0 (see below).
+
+## Legal
+
+QuestMaster is 5E compatible and uses rules only from the System Reference Document 5.2.1.
+
+This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.
