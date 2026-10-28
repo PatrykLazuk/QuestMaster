@@ -10,6 +10,20 @@ A phone-first web app for 5E tabletop sessions played around a real table. It's 
 - **Rolls:** checks, saves, initiative, attacks and damage, with advantage/disadvantage applied by the rules. Use the app's dice or type in what your physical dice show.
 - **Live table:** a shared roll feed, a GM dashboard with the whole party, and GM actions like damage and conditions. Phones that go to sleep catch up automatically.
 
+## How this project is built
+
+QuestMaster is built with an AI coding agent (Claude Code) under human technical leadership.
+The tech lead decides architecture, scope and acceptance criteria; the agent implements;
+every change lands through a reviewed pull request. This is agentic engineering, not vibe coding:
+
+- Plan first for non-trivial changes, then small, reviewable steps.
+- Red/green TDD for the domain; tests are never weakened to make them pass.
+- One issue = one branch = one PR, squash-merged after human review.
+- Decisions are recorded in ADRs (`docs/adr/`).
+- Commits where the agent contributed carry a `Co-Authored-By` trailer.
+
+The working rules for the agent are in [CLAUDE.md](CLAUDE.md).
+
 ## Docs
 
 - [SPEC.md](SPEC.md): the MVP specification (user stories, rules with SRD page references, sync design, milestones)
