@@ -77,6 +77,8 @@ ask me instead of inventing one.
   so it must be a valid Conventional Commit. Branches are deleted automatically after merge.
 - I review and click "Squash and merge" myself. You open the PR (`gh pr create`) and write its description
   (summary, changes, verification, notes), but never merge it.
+- Do not add a "Generated with Claude Code" footer to PR descriptions; AI involvement is documented
+  in the README ("How this project is built") and in the `Co-Authored-By` commit trailer.
 
 ## Docs
 
