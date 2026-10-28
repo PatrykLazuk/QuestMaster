@@ -68,9 +68,15 @@ ask me instead of inventing one.
 
 ## Git
 
+- GitHub Flow: `main` is always releasable; all work happens on short-lived branches (1-3 days) cut from fresh `main`.
 - One issue = one branch = one PR. Branches: `feat/<issue>-<slug>`, `fix/<issue>-<slug>`.
+  Small docs/config changes need no issue: `docs/<slug>`, `chore/<slug>`.
 - Conventional Commits (`feat:`, `fix:`, `refactor:`, `test:`, `docs:`).
 - Never commit to `main` directly. Never force-push.
+- Merge with squash only (the repo allows nothing else). The PR title becomes the commit on `main`,
+  so it must be a valid Conventional Commit. Branches are deleted automatically after merge.
+- I review and click "Squash and merge" myself. You open the PR (`gh pr create`) and write its description
+  (summary, changes, verification, notes), but never merge it.
 
 ## Docs
 
