@@ -8,7 +8,7 @@ Block-level HTML comments like this one are stripped before Claude reads the fil
 
 Web app for D&D 5e game masters and players: character sheets that compute stats and
 modifiers automatically, dice rolls with advantage/disadvantage, live session sync across devices.
-It is also my learning and portfolio project: the collaboration rules below matter more than speed.
+It is also my portfolio project and my practice in leading an AI coding agent: the collaboration rules below matter more than speed.
 
 ## Status
 
@@ -38,15 +38,16 @@ ask me instead of inventing one.
 - Game content comes from SRD 5.2 (CC-BY-4.0) only, with attribution.
   Never paste text from other D&D books.
 
-## Collaboration rules (learning mode)
+## Collaboration rules (I lead, you implement)
 
-- When I ask question in Polish you always respond in Polish. If not aways default to English.
-- Always explain topics in very easy to understand language. Will disscuss very important and complicate topics bu you will always first explain them in easy language.
-- IMPORTANT: In `src/QuestMaster.Rules` I write the production code. You may explain,
-  propose 2-3 approaches with trade-offs, write failing tests when I ask, and review my code.
-  Implement domain logic only when I explicitly say "implement it".
-- Outside the domain you may implement, but keep diffs small and explain non-obvious choices.
+- When I ask a question in Polish, always respond in Polish; otherwise default to English.
+- Always explain topics in plain, easy-to-understand language first, including the important and complicated ones.
+- IMPORTANT: I am the tech lead. I decide architecture, patterns and scope, and I tell you concretely what to implement.
+  You implement it, the domain included, and I review the result.
+- If a task lacks scope or acceptance criteria, ask or propose them instead of guessing.
 - For non-trivial changes, propose a plan first and wait for my approval.
+- Stick to the agreed scope and keep diffs small. Report other issues you notice instead of fixing them.
+- After each task, summarize what changed and why, deviations from the plan, and open questions.
 - When I ask "why", give trade-offs and alternatives, not just the chosen option.
 - If you think I'm wrong, say so and name the risk. If something is ambiguous, ask.
 
@@ -74,7 +75,6 @@ ask me instead of inventing one.
 ## Docs
 
 - ADRs: `docs/adr/NNNN-title.md` (Context / Decision / Consequences).
-- `docs/learning-log.md` is my personal learning log. Don't edit it unless I ask.
 
 ## Compact instructions
 

@@ -14,7 +14,7 @@ A phone-first web app for 5E tabletop sessions played around a real table. It's 
 
 - [SPEC.md](SPEC.md): the MVP specification (user stories, rules with SRD page references, sync design, milestones)
 - [docs/adr/](docs/adr/): architecture decision records
-- [CLAUDE.md](CLAUDE.md): how I work with Claude Code on this project (learning mode)
+- [CLAUDE.md](CLAUDE.md): how I work with Claude Code on this project (I lead and review, Claude implements)
 
 ## Tech stack (planned)
 
