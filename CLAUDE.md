@@ -61,6 +61,11 @@ ask me instead of inventing one.
 
 ## Code style
 
+- IMPORTANT: Readability for the next human reader beats clever tricks, shortcuts and speculative generalization
+  (`docs/adr/0014-code-readability-over-cleverness.md`). Write explicit code, add an interface, base class or option only
+  at the second real use, use a pattern only for a problem you can name, keep every flow traceable with Go to Definition,
+  and let comments explain why, not what.
+- If the tech lead has to ask what a piece of code does, treat it as a defect and fix the code, not only the explanation.
 - Follow `.editorconfig`; run `dotnet format` before committing.
 - Nullable reference types on; warnings as errors.
 - In the domain, prefer small value objects (e.g. `AbilityScore`, `Modifier`) over primitives.
