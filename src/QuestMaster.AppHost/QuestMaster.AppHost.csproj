@@ -1,0 +1,14 @@
+<Project Sdk="Aspire.AppHost.Sdk/13.6.4">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <AspireUseCliBundle>true</AspireUseCliBundle>
+    <UserSecretsId>fadcd7bb-24fc-4f7d-b56d-a36f220a8eac</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\QuestMaster.Server\QuestMaster.Server.csproj" />
+  </ItemGroup>
+
+</Project>
