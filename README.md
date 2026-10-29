@@ -2,7 +2,7 @@
 
 A phone-first web app for 5E tabletop sessions played around a real table. It's a smart character sheet that calculates every number for you, dice rolls with advantage and disadvantage, and a live table where everyone's rolls and HP changes show up on every phone within a second.
 
-> **Status:** early stage. The MVP spec is done; implementation hasn't started yet.
+> **Status:** early stage. The MVP spec is done and the .NET solution skeleton is in place.
 
 ## What it will do (MVP)
 
@@ -29,6 +29,25 @@ The working rules for the agent are in [CLAUDE.md](CLAUDE.md).
 - [SPEC.md](SPEC.md): the MVP specification (user stories, rules with SRD page references, sync design, milestones)
 - [docs/adr/](docs/adr/): architecture decision records
 - [CLAUDE.md](CLAUDE.md): how I work with Claude Code on this project (I lead and review, Claude implements)
+
+## Getting started
+
+Prerequisites:
+
+- [.NET SDK 10.0.403](https://dotnet.microsoft.com/download/dotnet/10.0) or a later 10.0.4xx patch (pinned in `global.json`)
+- [Aspire CLI](https://aspire.dev) 13.6
+
+Commands, run from the repository root:
+
+| What | Command |
+|---|---|
+| Build | `dotnet build` |
+| Run the tests | `dotnet test` |
+| Check formatting | `dotnet format --verify-no-changes` |
+| Run the app locally | `aspire run` |
+
+`aspire run` starts the API and prints a link to the Aspire dashboard (logs, traces and health of every part).
+The API answers its health check at http://localhost:5118/health.
 
 ## Tech stack (planned)
 

@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/QuestMaster.AppHost/QuestMaster.AppHost.csproj" />
+    <Project Path="src/QuestMaster.Rules/QuestMaster.Rules.csproj" />
+    <Project Path="src/QuestMaster.Server/QuestMaster.Server.csproj" />
+    <Project Path="src/QuestMaster.ServiceDefaults/QuestMaster.ServiceDefaults.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/QuestMaster.Architecture.Tests/QuestMaster.Architecture.Tests.csproj" />
+  </Folder>
+</Solution>
