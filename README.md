@@ -30,6 +30,25 @@ The working rules for the agent are in [CLAUDE.md](CLAUDE.md).
 - [docs/adr/](docs/adr/): architecture decision records
 - [CLAUDE.md](CLAUDE.md): how I work with Claude Code on this project (I lead and review, Claude implements)
 
+## Getting started
+
+Prerequisites:
+
+- [.NET SDK 10.0.403](https://dotnet.microsoft.com/download/dotnet/10.0) or a later 10.0.4xx patch (pinned in `global.json`)
+- [Aspire CLI](https://aspire.dev) 13.6
+
+Commands, run from the repository root:
+
+| What | Command |
+|---|---|
+| Build | `dotnet build` |
+| Run the tests | `dotnet test` |
+| Check formatting | `dotnet format --verify-no-changes` |
+| Run the app locally | `aspire run` |
+
+`aspire run` starts the API and prints a link to the Aspire dashboard (logs, traces and health of every part).
+The API answers its health check at http://localhost:5118/health.
+
 ## Tech stack (planned)
 
 .NET 10 · ASP.NET Core · SignalR · EF Core + PostgreSQL · Aspire · Angular (PWA) · xUnit · Testcontainers · Playwright · GitHub Actions
