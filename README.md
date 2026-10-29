@@ -2,7 +2,7 @@
 
 A phone-first web app for 5E tabletop sessions played around a real table. It's a smart character sheet that calculates every number for you, dice rolls with advantage and disadvantage, and a live table where everyone's rolls and HP changes show up on every phone within a second.
 
-> **Status:** early stage. The MVP spec is done; implementation hasn't started yet.
+> **Status:** early stage. The MVP spec is done and the .NET solution skeleton is in place.
 
 ## What it will do (MVP)
 
