@@ -1,0 +1,24 @@
+version: 2
+
+# Automated dependency updates (NFR-16). Minor and patch updates of one ecosystem arrive
+# as one grouped PR; major updates arrive one by one, because they can break things.
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: ci(deps)
+    groups:
+      actions-minor-and-patch:
+        update-types: [minor, patch]
+
+  - package-ecosystem: nuget
+    directory: /
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: chore(deps)
+    groups:
+      nuget-minor-and-patch:
+        update-types: [minor, patch]

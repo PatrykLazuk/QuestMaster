@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+# The workflow only reads the repository; no step needs write access.
+permissions:
+  contents: read
+
+# A new push to a pull request makes its older runs pointless, so they are cancelled.
+# Runs on main are never cancelled: every commit on main gets its own result.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  # Unit and architecture tests (ADR-0013, Decision 8). Integration, web and E2E jobs
+  # are added by the issues that introduce those tests.
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6.0.0
+        with:
+          global-json-file: global.json
+          cache: true
+          cache-dependency-path: '**/packages.lock.json'
+
+      # Locked mode fails if a packages.lock.json is out of date instead of silently updating it.
+      - name: Restore
+        run: dotnet restore --locked-mode
+
+      # Warnings are errors through Directory.Build.props.
+      - name: Build
+        run: dotnet build --no-restore
+
+      - name: Check formatting
+        run: dotnet format --verify-no-changes --no-restore
+
+      - name: Test
+        run: dotnet test --no-build
