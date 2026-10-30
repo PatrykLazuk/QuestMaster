@@ -42,13 +42,6 @@ public class RulesPurityTests
         Assert.Empty(forbiddenTypesInUse);
     }
 
-    // Temporary: fails on purpose to show that CI goes red on a failing test (#6). Reverted in the next commit.
-    [Fact]
-    public void Ci_demonstration_failing_test()
-    {
-        Assert.Equal(2, 1 + 2);
-    }
-
     // The compiler drops a reference that no code uses, so the first test cannot see it.
     // This test catches the declared intent in the project file instead.
     [Fact]
