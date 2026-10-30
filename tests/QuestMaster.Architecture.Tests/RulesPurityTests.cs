@@ -39,7 +39,7 @@ public class RulesPurityTests
             .Order()
             .ToList();
 
-    Assert.Empty(forbiddenTypesInUse);
+        Assert.Empty(forbiddenTypesInUse);
     }
 
     // The compiler drops a reference that no code uses, so the first test cannot see it.
