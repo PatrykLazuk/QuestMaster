@@ -13,7 +13,7 @@ public sealed class D20RollResult
 
     public IReadOnlyList<RolledDie> Dice { get; }
 
-    public RolledDie KeptDie => throw new NotImplementedException();
+    public RolledDie KeptDie => Dice.Single(die => die.IsKept);
 
     public Modifier Modifier { get; }
 
