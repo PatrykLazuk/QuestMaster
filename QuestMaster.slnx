@@ -8,5 +8,6 @@
   <Folder Name="/tests/">
     <Project Path="tests/QuestMaster.Architecture.Tests/QuestMaster.Architecture.Tests.csproj" />
     <Project Path="tests/QuestMaster.Rules.Tests/QuestMaster.Rules.Tests.csproj" />
+    <Project Path="tests/QuestMaster.Server.Tests/QuestMaster.Server.Tests.csproj" />
   </Folder>
 </Solution>
