@@ -20,7 +20,8 @@
 
 ## Definition of Done
 
-<!-- Tick an item when it holds, or write "n/a" next to it when it doesn't apply to this PR. -->
+<!-- Tick an item when it holds. When it doesn't apply to this PR, tick it too and add "n/a",
+     so an unticked box always means "not done yet". -->
 
 - [ ] CI is green
 - [ ] Domain code was written red/green TDD (test first, seen failing, then implemented)
