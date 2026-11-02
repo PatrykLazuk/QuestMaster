@@ -88,6 +88,11 @@ ask me instead of inventing one.
 ## Docs
 
 - ADRs: `docs/adr/NNNN-title.md` (Context / Decision / Consequences).
+- Every task starts in a new session, so the repo must always hold the full, current context.
+  A decision made during a task that settles, defers or changes a point of an ADR is recorded in that ADR,
+  under "Decisions made during implementation" with the issue number and date, not only in the PR or commits.
+- When an ADR assigns work to an issue, or a task moves work to another issue, update that issue's
+  acceptance criteria too, so the issue alone states its full scope.
 
 ## Compact instructions
 
