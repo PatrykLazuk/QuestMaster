@@ -7,7 +7,8 @@ using Xunit;
 namespace QuestMaster.Architecture.Tests;
 
 // NFR-25 and ADR-0001: QuestMaster.Rules is the pure domain, with no ASP.NET Core, EF Core or I/O.
-// Time and randomness are not forbidden yet: ADR-0003 decides where the dice source lives.
+// ADR-0003: it has no randomness either, because the server provides the dice faces.
+// Time is not forbidden yet: no decision covers it so far.
 public class RulesPurityTests
 {
     private const string RulesAssemblyName = "QuestMaster.Rules";
@@ -20,11 +21,13 @@ public class RulesPurityTests
         "System.Data",
         "System.IO",
         "System.Net",
+        "System.Security.Cryptography",
     ];
 
     private static readonly string[] ForbiddenTypes =
     [
         "System.Console",
+        "System.Random",
     ];
 
     // The compiled assembly lists every external type its code uses, so this catches actual usage.

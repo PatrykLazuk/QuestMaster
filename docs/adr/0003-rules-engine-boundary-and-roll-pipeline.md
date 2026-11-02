@@ -104,6 +104,17 @@ A rule enters the scope in which the number of dice depends on dice already roll
 
 **Follow-ups**
 
-- Issue #9: plan and resolve for a normal d20 check; the server dice roller with its production and deterministic implementations; `tests/QuestMaster.Server.Tests` with the uniformity and smoke tests; an architecture test that forbids randomness in `QuestMaster.Rules`.
-- Issue #24: the `roll.d20` command uses this flow. In M0 commands carry no dice values (D7.2).
+- Issue #9: plan and resolve for a normal d20 check; the production server dice roller; `tests/QuestMaster.Server.Tests` with the uniformity and smoke tests; an architecture test that forbids randomness in `QuestMaster.Rules`. Done; see the decisions below.
+- Issue #24: the `roll.d20` command uses this flow. In M0 commands carry no dice values (D7.2). It also adds the server dice roller interface and its deterministic implementation (moved from #9, see below).
 - M2: advantage and disadvantage (two d20s), damage plans with critical hits, and manual dice (D5), including the manual damage total.
+
+## Decisions made during implementation
+
+Each task starts without the discussion that led to it, so decisions that settle, defer or change a point of this ADR are recorded here.
+
+### Issue #9 (2026-11-02)
+
+- **Shape of the code (Decisions 1 and 2).** `new D20RollPlan(modifier)` holds everything the result needs. `plan.DiceNeeded` tells the server which dice to roll, for example `DiceNeeded(Count: 1, Sides: 20)`. `plan.Resolve(faces)` returns a `D20RollResult` with every `RolledDie`, the kept die, the modifier and the total. This replaces the static `D20Roll.Plan(RollMode…)` sketch above: the modifier belongs in the plan, as Decision 1 says, and a `RollMode` with only `Normal` would be speculative (ADR-0014). M2 adds the mode as a constructor parameter that defaults to normal, and the roll type when critical hits need it (D2.3).
+- **Form of the rejection (Decision 3).** `Resolve` throws: `ArgumentException` for the wrong number of faces and `ArgumentOutOfRangeException` for a face outside the die's range. In M0 faces come only from the server dice roller, so an invalid face is a bug, as in `AbilityScore`. Revisit together with ADR-0007 when manual dice (M2) bring faces typed in by a player.
+- **Dice source in the result (Decision 2)** is not added yet: with server dice only it would have a single value. It comes with the roll record in #24 or with manual dice in M2, whichever is first.
+- **Server dice roller (Decision 7).** #9 adds only the concrete production class `DiceRoller` in `QuestMaster.Server/Rolls`. The interface and the deterministic implementation move to issue #24, where integration tests first use them. In #9 nothing would use the interface, which is the speculative abstraction ADR-0014 rules out.
